@@ -1,0 +1,16 @@
+Commands to run:
+
+Q A:
+hadoop jar /home/cloudera/Desktop/wordcountA.jar WordCount input output
+
+Q B:
+hadoop jar /home/cloudera/Desktop/wordcountB.jar WordCount input output
+
+Q C:
+hadoop jar /home/cloudera/Desktop/wordcountC.jar WordCount input output
+
+Q D:
+hadoop jar /home/cloudera/Desktop/wordcountD.jar WordCount input output
+
+Q E:
+hadoop jar /home/cloudera/Desktop/wordcountE.jar WordCount input output
