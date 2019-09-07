@@ -1,5 +1,5 @@
 Command to Run jar
-Syntax To Run Jar:
+Syntax To Run problem 4&5:
 hadoop jar <Jar_FileName> <ClassPath> <Job_Name> <Input_Folder> <Output_Folder>
-Example For Question 1:
-hadoop jar lab3_1.jar AverageTemperaturePerYear Average temperature input output
+Example For Question:
+hadoop jar lab3_1.jar lab3_1.AverageTemperaturePerYear input output
