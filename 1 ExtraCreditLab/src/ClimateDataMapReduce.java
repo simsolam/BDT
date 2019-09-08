@@ -21,7 +21,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 //ExtraCredit Question
-public class ClimateData extends Configured implements Tool
+public class ClimateDataMapReduce extends Configured implements Tool
 {
 	public static class ClimateDataMapper extends Mapper<LongWritable, Text, CompoundKey, Text>
 	{
@@ -58,7 +58,7 @@ public class ClimateData extends Configured implements Tool
 	{
 		Configuration conf = new Configuration();
 
-		int res = ToolRunner.run(conf, new ClimateData(), args);
+		int res = ToolRunner.run(conf, new ClimateDataMapReduce(), args);
 
 		System.exit(res);
 	}
@@ -75,7 +75,7 @@ public class ClimateData extends Configured implements Tool
 			fs.delete(new Path(args[2]), true);
 		
 		Job job = new Job(c, "ClimateDataJob");
-		job.setJarByClass(ClimateData.class);
+		job.setJarByClass(ClimateDataMapReduce.class);
 
 		job.setMapperClass(ClimateDataMapper.class);
 		job.setReducerClass(ClimateDataReducer.class);
