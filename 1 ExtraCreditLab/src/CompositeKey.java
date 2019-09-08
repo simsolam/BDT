@@ -6,7 +6,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 
-
+//Creating a composite key with StationId and Temperature
 public class CompositeKey implements WritableComparable {
 	Text stationId = new Text();
 	IntWritable temp = new IntWritable();
