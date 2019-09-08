@@ -23,10 +23,10 @@ import org.apache.hadoop.util.ToolRunner;
 //ExtraCredit Question
 public class ClimateDataMapReduce extends Configured implements Tool
 {
-	public static class ClimateDataMapper extends Mapper<LongWritable, Text, CompoundKey, Text>
+	public static class ClimateDataMapper extends Mapper<LongWritable, Text, CompositeKey, Text>
 	{
 
-		private CompoundKey compKey = new CompoundKey();
+		private CompositeKey compKey = new CompositeKey();
 
 		@Override
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException
@@ -39,12 +39,12 @@ public class ClimateDataMapReduce extends Configured implements Tool
 		
 	}
 
-	public static class ClimateDataReducer extends Reducer<CompoundKey, Text, CompoundKey, Text>
+	public static class ClimateDataReducer extends Reducer<CompositeKey, Text, CompositeKey, Text>
 	{
 		private Text result = new Text();
 		
 		@Override
-		public void reduce(CompoundKey key, Iterable<Text> values, Context context) throws IOException, InterruptedException
+		public void reduce(CompositeKey key, Iterable<Text> values, Context context) throws IOException, InterruptedException
 		{
 			for(Text t:values){
 				result.set(key.getTemp()+"\t"+t);
@@ -81,7 +81,7 @@ public class ClimateDataMapReduce extends Configured implements Tool
 		job.setReducerClass(ClimateDataReducer.class);
 		job.setNumReduceTasks(1);
 
-		job.setOutputKeyClass(CompoundKey.class);
+		job.setOutputKeyClass(CompositeKey.class);
 		job.setOutputValueClass(Text.class);
 
 		job.setInputFormatClass(TextInputFormat.class);
