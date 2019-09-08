@@ -7,13 +7,13 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 
 
-public class CompoundKey implements WritableComparable {
+public class CompositeKey implements WritableComparable {
 	Text stationId = new Text();
 	IntWritable temp = new IntWritable();
 	
-	CompoundKey(){}
+	CompositeKey(){}
 	
-	CompoundKey(String station, Integer temp){
+	CompositeKey(String station, Integer temp){
 		this.stationId.set(station);
 		this.temp.set(temp);
 	}
@@ -48,9 +48,9 @@ public class CompoundKey implements WritableComparable {
 
 	@Override
 	public int compareTo(Object o) {
-		if(!(o instanceof CompoundKey))
+		if(!(o instanceof CompositeKey))
 			return -1;
-		CompoundKey compKey = (CompoundKey)o;
+		CompositeKey compKey = (CompositeKey)o;
 		if(this.stationId.compareTo(compKey.stationId)==0){
 			return -1*this.temp.compareTo(compKey.temp);
 		}
