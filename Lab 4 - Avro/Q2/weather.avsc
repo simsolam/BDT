@@ -1,0 +1,5 @@
+{
+	"type": "record",
+	"name": "WeatherRecord",
+	"doc": "A weather reading.",
+	"fields": [{"name":"year","type":"int"},{"name":"temperature","type":"int","order":"descending"},{"name":"stationId","type":"string"}]}
