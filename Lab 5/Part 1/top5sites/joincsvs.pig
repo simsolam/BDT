@@ -1,6 +1,6 @@
-users = LOAD '/home/cloudera/Desktop/user.csv' USING PigStorage(',') AS (user:chararray , age:int);
+users = LOAD '/home/cloudera/Desktop/users.csv' USING PigStorage(',') AS (user:chararray , age:int);
 users = FILTER users BY(age>=18 AND age<=25);
-sites = LOAD '/home/cloudera/Desktop/page.csv' USING PigStorage(',') AS (user:chararray , site:chararray);
+sites = LOAD '/home/cloudera/Desktop/pages.csv' USING PigStorage(',') AS (user:chararray , site:chararray);
 joined = JOIN users BY user, sites BY user;
 grouped = GROUP joined BY site;
 top_site_count = FOREACH grouped GENERATE group, COUNT(joined) AS counted;
