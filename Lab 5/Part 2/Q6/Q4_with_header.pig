@@ -11,5 +11,6 @@ top_20 = LIMIT ordered_movie_by_avg 20;
 top_20 = FOREACH top_20 GENERATE adventure_movies::movieId,adventure_movies::genre,rating_calc::average,adventure_movies::title;
 top_20_ordered = ORDER top_20 BY adventure_movies::movieId;
 movies_with_header = FOREACH top_20_ordered GENERATE adventure_movies::movieId AS MovieID, adventure_movies::genre AS Genre, rating_calc::average AS Rating, adventure_movies::title AS Title;
+REGISTER '/home/cloudera/Desktop/piggybank.jar';
 STORE movies_with_header INTO 'Desktop/Q4_movies_with_header' USING org.apache.pig.piggybank.storage.CSVExcelStorage('\t', 'NO_MULTILINE', 'UNIX', 'WRITE_OUTPUT_HEADER');
 
