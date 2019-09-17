@@ -1,0 +1,2 @@
+run command :
+flume-ng agent -c ./conf/ --conf-file ./conf/fan-out.conf --name agent1 -Dflume.root.logger=INFO,console&
